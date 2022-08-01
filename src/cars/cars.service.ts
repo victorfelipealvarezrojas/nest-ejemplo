@@ -7,21 +7,11 @@ import { UpdateCartDto } from './dto/update-car.dto';
 @Injectable()
 export class CarsService {
      private cars: Car[] = [
-          {
+         /* {
                id: uuid(),
                brand: "Toyota",
                model: 'Corolla'
-          },
-          {
-               id: uuid(),
-               brand: "Honda",
-               model: 'Civic'
-          },
-          {
-               id: uuid(),
-               brand: "Jeep",
-               model: 'Cherokee'
-          }
+          } */
      ];
 
      public findAll() {
@@ -77,7 +67,10 @@ export class CarsService {
           if(carsnew === null) throw new BadRequestException("not found")
 
           return carsnew;
+     }
 
+     public fillCarsWithSeedDate(cars: Car[]){
+          this.cars = cars;
      }
 
 
